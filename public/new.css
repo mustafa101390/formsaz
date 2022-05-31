@@ -1,0 +1,188 @@
+.HeaderStyle {
+    background-color: #042b87;
+    color: #fff;
+    font-size: 14px;
+    height: 40px;
+    display: none;
+}
+.GridStyle {
+    background-color: transparent;
+    border: none;
+    color: #666666;
+    font-size: 14px !important;
+    padding: 1px;
+    text-align: center;
+    vertical-align: middle;
+    width: 730px !important;
+}
+.PagerStyle tr {
+    display: block;
+    direction: ltr !important;
+}
+.GridStyle td {
+    border: 0 none;
+}
+.RowStyle:hover {
+    background-color: #d0d2d3;
+    border: 0 none;
+    box-shadow: -2px 4px 6px 2px #c4c4c4;
+    color: #042b87;
+    font-size: 14px;
+}
+/*.RowStyle td a,.AlternatingRowStyle td a {
+    background-color: #fff;
+    border: 1px solid #d5d2d2;
+    color: #666666 !important;
+    font-size: 14px;
+    margin-left: 9px;
+    padding: 3px;
+    text-decoration: none;
+}
+.RowStyle td a:hover,.AlternatingRowStyle td a:hover {
+    background-color: #042b87;
+    color: #fff !important;
+    text-decoration: none;
+}
+.AlternatingRowStyle {
+    background-color: #f4f4f4;
+    color: #666666;
+}
+*/.FooterStyle {
+      background-color: #019cd5;
+  }
+.AlternatingRowStyle {
+    background-color: #f4f4f4;
+    color: #666666;
+}
+.PagerStyle {
+    border:none;
+}
+.PagerStyle table{
+    float: left;
+    left: 8px;
+    position: relative;
+}
+.PagerStyle a {
+    color: navy !important;
+    font-size: 18px !important;
+}
+.PagerStyle span {
+    color: #8b0861;
+    font-size: 18px !important;
+    font-weight: normal}
+.AlternatingRowStyle:hover {
+    background-color: #d0d2d3;
+    border: 0 none;
+    box-shadow: -2px 4px 6px 2px #c4c4c4;
+    color: #042b87;
+    font-size: 14px;
+}
+.GridStyle tr:hover {
+    border: 0 none;
+}
+.HeaderStyle th {
+    border: 0 none;
+}
+table#grd1 {
+    width: 95% !important;
+    margin: 0 auto !important;
+    max-width: 520px;
+}
+th {
+    display: none}
+tr {
+    display: grid;
+    width: 95%;
+    margin-bottom: 30px;
+    border: 1px solid #333;
+    padding-right: 15px;
+
+}
+td {
+    border: 0;
+    text-align: right;
+}
+#grd1>tbody>tr td:nth-child(1) img {
+    height: auto !important;
+    width: 100% !important;
+    max-height: 150px !important;
+    max-width: 120px;
+    float: left;
+    padding-top: 20px !important;
+}
+.PagerStyle td {
+    margin-top: 0 !important;
+}
+#grd1>tbody>tr td:nth-child(1) {
+    grid-column: 3;
+    grid-row: 3;
+    height: auto;
+    margin-top: -95px;
+}
+#grd1>tbody>tr td:nth-child(2) {
+    grid-column: 1;
+    grid-row: 1;
+    border: none !important;
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+}
+#grd1>tbody>tr td:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+    border: none !important;
+}
+#grd1>tbody>tr td:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+    border: none !important;
+}
+#grd1>tbody>tr td:nth-child(5) {
+    grid-column: 1;
+    grid-row: 3;
+    border: none !important;
+}
+#grd1>tbody>tr td:nth-child(6) {
+    grid-column: 2;
+    grid-row: 3;
+    border: none !important;
+}
+#grd1>tbody>tr td:nth-child(7) {
+    grid-column: 3;
+    grid-row: 3;
+    border: none !important;
+}
+#grd1>tbody>tr td:nth-child(8) {
+    grid-column: 1 / span 3;
+    grid-row: 4;
+    border: none !important;
+    width: 100% !important;
+}
+#grd1>tbody>tr td {
+    padding: 5px}
+/*#grd1>tbody>tr td:nth-child(2):before {
+    display: inline-block;
+    content: 'نام و نام خانوادگی: ';
+    font-weight: bold;
+}
+*/#grd1>tbody>tr td:nth-child(3):before {
+      display: inline-block;
+      font-weight: bold;
+      color: #8b0861;
+  }
+#grd1>tbody>tr td:nth-child(4):before {
+    display: inline-block;
+    font-weight: bold;
+    color: #8b0861;
+}
+/*#grd1>tbody>tr td:nth-child(5):before {
+    display: inline-block;
+    content: 'صفحه شخصی:';
+    font-weight: bold;
+}
+*/thead {
+      display: none;
+  }
+#grd1>tbody>tr td span,#grd1>tbody>tr td a {
+    width: 100% !important;
+}

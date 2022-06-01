@@ -7,5 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class FormCategory extends Model
 {
-    use HasFactory;
+
+
+    protected $fillable = [
+        'name', 'status', 'link',
+    ];
+
+
+    public function form_subcategories(){
+        return $this->hasMany(FormSubcategory::class , 'form_category_id');
+    }
+
+
 }

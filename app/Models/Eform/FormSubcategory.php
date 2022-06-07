@@ -11,12 +11,17 @@ class FormSubcategory extends Model
 
 
     protected $fillable = [
-        'name', 'status', 'link',
+        'name', 'status', 'link','form_category_id',
     ];
 
 
     public function form_category(){
-        return $this->belongsTo(CompanyPlan::class);
+        return $this->belongsTo(FormCategory::class);
+    }
+
+
+    public function forms(){
+        return $this->hasMany(Form::class , 'form_subcategory_id');
     }
 
 

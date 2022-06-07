@@ -7,5 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class FormField extends Model
 {
-    use HasFactory;
+
+    protected $fillable = [
+        'name', 'multi',
+    ];
+
+
+    public function form_coloumn(){
+        return $this->hasOne(FormColoumn::class , 'form_field_id');
+    }
+
+
 }

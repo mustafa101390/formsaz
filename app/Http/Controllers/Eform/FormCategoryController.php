@@ -11,9 +11,8 @@ class FormCategoryController extends Controller
 
 
     public function index(){
-        dd('hi');
-        $values= Value::all();
-        return view('admin.value.index' , compact(['values'  ]));
+        $form_categories= FormCategory::all();
+        return view('admin.value.index' , compact(['form_categories'  ]));
     }
 
 
@@ -22,7 +21,7 @@ class FormCategoryController extends Controller
     }
 
     public function edit($id){
-        $value=Value::find($id);
+        $form_category=FormCategory::find($id);
         return view('admin.value.edit' , compact(['value'  ]));
     }
 
@@ -34,9 +33,9 @@ class FormCategoryController extends Controller
             'text' => 'required',
         ]);
         $data = $request->all();
-        $data['image']  =  uploadFile($request->file('image1'),'images/values','');
+        $data['image']  =  uploadFile($request->file('image1'),'images/form_categories','');
 
-       Value::create($data);
+       FormCategory::create($data);
        Alert::success('با موفقیت ثبت شد', 'اطلاعات جدید با موفقیت ثبت شد');
         return redirect()->route('admin.value.index');
     }
@@ -48,29 +47,29 @@ class FormCategoryController extends Controller
 
 
 
-    public function update(Request $request, $id , Value $value){
+    public function update(Request $request, $id , Value $form_category){
         $request->validate([
             'name' => 'required',
             'text' => 'required',
         ]);
-        $value=Value::find($id);
+        $form_category=FormCategory::find($id);
         $data = $request->all();
-        $data['image']= $value->image;
-        $data['image']  =  uploadFile($request->file('image1'),'images/values',$value->image);
-        $value->update($data);
+        $data['image']= $form_category->image;
+        $data['image']  =  uploadFile($request->file('image1'),'images/form_categories',$form_category->image);
+        $form_category->update($data);
         Alert::success('با موفقیت ویرایش شد', 'اطلاعات با موفقیت ویرایش شد');
         return back();
     }
 
 
     public function destroy($id , Request $request){
-        Value::destroy($request->id);
+        FormCategory::destroy($request->id);
         Alert::info('با موفقیت حذف شد', 'اطلاعات با موفقیت حذف شد');
         return back();
     }
 
     public function status(Request $request , $id){
-        $status=Change_status($id,'values');
+        $status=Change_status($id,'form_categories');
         return back();
     }
 

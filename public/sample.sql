@@ -1,62 +1,32 @@
-select
-    code,
-    nfamily
-     ,form677.date1 as date1
-     ,codem
-     , replace (convert(varchar, cast (FinalPrice as money),1),'.00','') +N'  ریال ' as FinalPrice_m
-     ,N' بخش '+ (SELECT Name
-                 FROM ETools_Group
-                 where id=groups)
-    +' /  '+
-      (select
-           EToolsTitle  from form676
-       where
-               code=items) as title
-
-     ,CAST(Payment_Log.Attribute AS XML ).value('(//TransactionState)[1]', 'nvarchar(500)') AS TransactionState
-     ,CAST(Payment_Log.Attribute AS XML ).value('(//TransactionNumber)[1]', 'nvarchar(500)') AS TransactionNumber
-     ,CAST(Payment_Log.Attribute AS XML ).value('(//TransactionStateCode)[1]', 'nvarchar(500)') AS TransactionStateCode
-
-FROM Payment_Log
-
-         inner join Payment_Order on Payment_Order_Id=Payment_Order.id
-         inner join form677 on form677.code=SUBSTRING(subSystem_order,5,100)
-where SUBSTRING(subSystem_order,0,4) in (677 , 719 )
-
-  and form677.code=@#autoid
+INSERT INTO ImportUsers (UserName, PassWord, Email, PasswordQuestion, PasswordAnswer, Name, Gender, Tel, Mobile, Lang,
+                         sub, RoleName, Family, identifierID, job, isPersonalizeEtools, IsDeleted, IsActive)
+VALUES ('tarh_alborz', 'alborz@t123', 'tarh_alborz@maj.ir', 'pq', 'pa', N'سازمان جهاد کشاورزی استان البرز', '1', '', '',
+        '1', '0', '', N'کاربرطرح سازمان جهاد کشاورزی استان البرز', '', '', NULL, '', '1');
 
 
 
-    code,title,nfamily,date1,TransactionState,TransactionNumber,TransactionStateCode,FinalPrice_m
+INSERT INTO ImportUsers (UserName, PassWord, Email, PasswordQuestion, PasswordAnswer, Name, Gender, Tel, Mobile, Lang,
+                       sub, RoleName, Family, identifierID, job, isPersonalizeEtools, IsDeleted, IsActive)
+VALUES ('tarh_ardebil', 'pRzm75P2', 'tarh_ardebil@maj.ir', 'pq', 'pa', N'سازمان جهاد کشاورزی استان اردبیل', '1', '', '',
+        '1', '0', '', N'کاربرطرح سازمان جهاد کشاورزی استان اردبیل', '', '', NULL, '', '1');
 
-
-
-///////////////////////////////
-
-
-
-
-
-select  top 20
-form677.code , form677.codem , form677.nfamily , form677.date1 , form677.groups , form677.items
-  , replace (convert(varchar, cast (form677.price as money),1),'.00','') +N'  ریال ' as FinalPrice_m
- , N' بخش '+ (SELECT Name
-                                         FROM ETools_Group
-                                         where id=groups)
-    +' /  '+
-                              (select
-                                   EToolsTitle  from form676
-                               where
-                                       code=items) as title
-
-
-from
-    form677
-        inner join ETools_Group ON form677.groups = ETools_Group.id
-        inner join form676 ON form677.items = form676.code
-where
-        form677.code=677
-
-
-
-
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP(1000)[UserName]
+     , [PassWord]
+     , [Email]
+     , [PasswordQuestion]
+     , [PasswordAnswer]
+     , [Name]
+     , [Gender]
+     , [Tel]
+     , [Mobile]
+     , [Lang]
+     , [sub]
+     , [RoleName]
+     , [identifierID]
+     , [job]
+     , [isPersonalizeEtools]
+     , [Family]
+     , [IsActive]
+     , [IsDeleted]
+FROM [MajDB].[dbo].[ImportUsers]
